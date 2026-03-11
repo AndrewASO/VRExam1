@@ -13,7 +13,9 @@ public class SpawnController : MonoBehaviour {
         for(int i = 0; i < planetSpawners.Length; i++){
             planetSpawners[i].UpdateTotalDupe(totalDupe);
         }
-        pointText.text = "Score: " + totalDupe;
+        //The total score would be the donuts spawned & total amount duped
+        pointText.text = "Score: " + (DonutTracker.donutsSpawned + totalDupe);
+        DonutTracker.dupesSpawned = totalDupe;  //This is just for scene 1
     }
 
     public void AddDupe(){

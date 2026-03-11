@@ -5,6 +5,6 @@ public class GameQuit : MonoBehaviour {
         Application.Quit();
 
         //Unity Editor Test
-        UnityEditor.EditorApplication.isPlaying = false;
+        //UnityEditor.EditorApplication.isPlaying = false;
     }
 }
