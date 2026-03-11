@@ -31,7 +31,8 @@ public class GlobalTimer : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
-        if(TimeReached) return;     //Stops counting once the time threshold has been reached
+        if(TimeReached) return;     //Stops counting once the time threshold has been reached   
+        //Change this to enable = false to stop updates from calling once Time Threshold is reached ? 
 
         elapsedTime += Time.deltaTime;
 

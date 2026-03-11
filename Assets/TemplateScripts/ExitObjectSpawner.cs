@@ -18,6 +18,7 @@ public class ExitObjectSpawner : MonoBehaviour {
     }
 
     void SpawnExitObject() {
+        Debug.Log("Exit object was attempted to be spawned");
         GameObject obj = Instantiate(exitObjectPrefab, spawnLocation.position, spawnLocation.rotation);
     }
 }
