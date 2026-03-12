@@ -512,7 +512,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27c8c9607c3c3b34f8460d1b93edabda, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HeadMovement
-  tiltThreshold: 20
+  tiltThreshold: 30
   movSpd: 2
   playerRoot: {fileID: 778630720}
 --- !u!1 &963194225
