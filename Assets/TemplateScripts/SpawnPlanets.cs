@@ -14,6 +14,7 @@ public class SpawnPlanets : MonoBehaviour {
     public enum Orientation {X, Z};         //Orientation of the offsets if they'll go in the x or z direction
     public Orientation orientation;         //Made into enum instead of string so there's less mistakes and only 2 options
     public float moveDur = 2.5f;              //How long it'll take the duped planet to move to its designated location
+    private bool canSpawn = true;
 
     public void SpawnDupe(){
         if(dupeNumber == 0) {
@@ -21,7 +22,7 @@ public class SpawnPlanets : MonoBehaviour {
             //worldText = "You are on the top of the world";
         }
 
-        if(dupeNumber < 3 && totalDupe < 6){
+        if(dupeNumber < 3 && totalDupe < 6 && canSpawn){
             Vector3 currentPosition = planetPos.position;
             Vector3 newPos = currentPosition;
             if(orientation == Orientation.X) {
@@ -36,12 +37,19 @@ public class SpawnPlanets : MonoBehaviour {
 
             //Creates the new planet as a game object then puts it into the coroutine MovePlanet to move it to its new location
             GameObject newPlanet = Instantiate(prefab, currentPosition, planetPos.rotation );
+            canSpawn = false;
+            StartCoroutine( UpdateCanSpawn() );
             StartCoroutine(MovePlanet(newPlanet.transform, newPos) );
             dupeNumber++;
             spawnController.AddDupe();
         }
     }
 
+    IEnumerator UpdateCanSpawn() {
+        yield return new
+        WaitForSeconds(3f);
+        this.canSpawn = true;
+    }
 
     //Gets the transform of the initial planet and then the location set for the new planet
     IEnumerator MovePlanet(Transform planet, Vector3 targetPos) {

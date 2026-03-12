@@ -16,7 +16,7 @@ public static class XRInputManager
     /// <returns>If the button for either VR or Desktop controls was pressed down this frame.</returns>
     public static bool IsButtonDown()
     {
-        Debug.Log("Trigger is pressed");
+        //Debug.Log("Trigger is pressed");
         return Input.GetMouseButtonDown(0) || Api.IsTriggerPressed;
     }
 }
