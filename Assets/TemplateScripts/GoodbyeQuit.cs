@@ -17,6 +17,7 @@ public class GoodbyeQuit : MonoBehaviour {
     IEnumerator QuitAfterDelay() {
         yield return new
         WaitForSeconds(5f);
-        Application.Quit();
+        //Application wasn't meant to be closed on its own.
+        //Application.Quit();
     }
 }
